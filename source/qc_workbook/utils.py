@@ -4,7 +4,6 @@ from typing import Callable, Optional, Union, Tuple
 import collections
 import numpy as np
 from qiskit.transpiler import CouplingMap
-from qiskit.providers.exceptions import BackendPropertyError
 from qiskit_ibm_runtime.api.exceptions import RequestsApiError
 
 def operational_backend(
@@ -118,7 +117,7 @@ def find_best_chain(
         for q1, q2 in zip(chain[:-1], chain[1:]):
             try:
                 ent_err = prop.gate_error(entangling_gate, (q1, q2))
-            except BackendPropertyError:
+            except Exception:
                 ent_fid = (1. - prop.gate_error(entangling_gate, (q2, q1)))
                 ent_fid *= (1. - prop.gate_error('sx', q1)) * (1. - prop.gate_error('sx', q2))
                 ent_err = 1. - ent_fid
