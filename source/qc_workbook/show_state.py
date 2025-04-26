@@ -8,7 +8,7 @@ from qiskit_aer import AerSimulator
 def show_state(
     statevector: Union[QuantumCircuit, np.ndarray],
     amp_norm: Optional[Tuple[float, str]] = None,
-    phase_norm: Tuple[float, str] = (np.pi, '\pi'),
+    phase_norm: Tuple[float, str] = (np.pi, '\\pi'),
     global_phase: Optional[Union[float, str]] = None,
     register_sizes: Optional['array_like'] = None,
     terms_per_row: int = 8,
@@ -57,7 +57,7 @@ def show_state(
 def statevector_expr(
     statevector: Union[np.ndarray, QuantumCircuit],
     amp_norm: Optional[Tuple[float, str]] = None,
-    phase_norm: Tuple[float, str] = (np.pi, '\pi'),
+    phase_norm: Tuple[float, str] = (np.pi, '\\pi'),
     global_phase: Optional[Union[float, str]] = None,
     register_sizes: Optional['array_like'] = None,
     terms_per_row: int = 0,
