@@ -94,7 +94,7 @@ def statevector_expr(
         circuit.save_statevector()
 
         # Transpile and run the circuit
-        circuit = transpile(circuit, backend=simulator)
+        circuit = transpile(circuit, backend=simulator, optimization_level=0)
         statevector = np.asarray(simulator.run(circuit).result().data()['statevector'])
 
     ## Setup
